@@ -3,6 +3,8 @@
 ### Links
 [Original Website: sm64js.com](https://sm64js.com)
 
+[Big thanks to sm64js source code!: github.com/sm64js/sm64js](https://github.com/sm64js/sm64js)
+
 [Discord Server](https://discord.gg/7UaDnJt)
 
 ## What is this?
