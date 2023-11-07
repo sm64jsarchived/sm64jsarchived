@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package sm64js;
+message RootMsg {
+	oneof message {
+		Sm64JsMsg uncompressed_sm64js_msg = 1;
+		bytes compressed_sm64js_msg = 2;
+		bytes json_bytes_msg = 3;
+	}
+}
+
+message Sm64JsMsg {
+	oneof message {
+		MarioListMsg list_msg = 1;
+		MarioMsg mario_msg = 2;
+		ValidPlayersMsg valid_players_msg = 3;
+		/*ControllerMsg controller_msg = 6;
+		ControllerListMsg controller_list_msg = 7;*/
+	}
+}
+
+message MarioListMsg {
+	repeated MarioMsg mario = 2;
+}
+
+message ControllerListMsg {
+	repeated ControllerMsg controller = 1;
+}
+
+message MarioMsg {
+	ControllerMsg controller = 1;
+	string playerName = 2;
+	uint32 action = 3;
+	uint32 prevAction = 4;
+	uint32 actionState = 5;
+	uint32 actionTimer = 6;
+	uint32 actionArg = 7;
+	sint32 invincTimer = 8;
+	uint32 framesSinceA = 9;
+	uint32 framesSinceB = 10;
+	uint32 wallKickTimer = 11;
+	uint32 doubleJumpTimer = 12;
+	repeated sint32 faceAngle = 13;
+	repeated sint32 angleVel = 14;
+	repeated float pos = 15;
+	repeated float vel = 16;
+	float forwardVel = 17;
+	repeated sint32 rawData = 18;
+	uint32 usedObjID = 19;
+	uint32 channelID = 20;
+}
+
+message ControllerMsg {
+	float stickX = 1;
+	float stickY = 2;
+	float stickMag = 3;
+	uint32 buttonDown = 4;
+	uint32 buttonPressed = 5;
+	sint32 cameraYaw = 6;
+	uint32 channelID = 7;
+}
+
+message ValidPlayersMsg {
+	repeated uint32 validPlayers = 1;
+}
