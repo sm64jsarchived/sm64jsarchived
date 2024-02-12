@@ -1,0 +1,14 @@
+FROM timbru31/node-alpine-git:14
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+COPY . .
+
+RUN npm run build
+
+COPY src/favicon.ico ./dist/
