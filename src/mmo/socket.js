@@ -212,10 +212,10 @@ const updateConnectedMsg = () => {
     const elem = document.getElementById("connectedMsg")
     const numPlayers = networkData.numOnline ? networkData.numOnline : "?"
     if (socket && socket.readyState == 1) {
-        elem.innerHTML = "Connected To Server  -  " + (numPlayers).toString() + " Players Online" 
+        elem.innerHTML = "Connected to server  -  players online: " + (numPlayers).toString()
         elem.style.color = "lawngreen"
     } else {
-        elem.innerHTML = "Not connected to server - Refresh the page"
+        elem.innerHTML = "Not connected to server - refresh the page"
         elem.style.color = "red"
     }
 }
@@ -391,6 +391,8 @@ export const sendPlayerInteraction = (socket_id, interaction) => {
 export const submitPlayerName = () => {
 
     document.getElementById("pvpButton").hidden = true
+    // document.getElementById("mapDiv").hidden = true
+    document.getElementById("yellowControls").style = "justify-content:center; margin-top: 195px;"
 	Game.load_pvp()
 
     const joinGameMsg = new JoinGameMsg()
@@ -486,7 +488,7 @@ export const recvAuthorizedUser = async (res) => {
             document.getElementById("playerNameRow").hidden = false
             document.getElementById("discordNameBox").value = msg.username
             document.getElementById("signinButtons").hidden = true
-            document.getElementById("logoutButton").hidden = false
+            // $(Cosmetics.settingsHTML).children("button")[1].hidden = false
             if (!msg.username) { /// Discord Username option not available
                 document.getElementById("customNameRow").hidden = false
                 document.getElementById("discordNameRow").hidden = true
@@ -509,3 +511,4 @@ export const recvAuthorizedUser = async (res) => {
     return false
 }
 
+// site rewrite
