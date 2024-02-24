@@ -62,8 +62,7 @@ let socket
 export const networkData = {
     playerInteractions: true,
     remotePlayers: {},
-	// Negative value is for localhost testing ports like: http://localhost:80 or http://localhost:9300
-    mySocketID: -1,
+    mySocketID: 0,
     lastSentSkinData: {},
     announcement: { message: "", timer: 0 },
     flagData: undefined // defined later
