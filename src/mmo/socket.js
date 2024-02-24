@@ -217,7 +217,7 @@ const updateConnectedMsg = () => {
         elem.style.color = "lawngreen"
     } else {
         elem.innerHTML = "Not connected to server - refresh the page"
-        elem.style.color = "red"
+        elem.style.color = "brightred"
     }
 }
 
