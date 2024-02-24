@@ -54,7 +54,7 @@ if (process.env.BACKEND_URL) {
     const isSecure = backendUrl.protocol === "https:"
     websocketServerPath = `${isSecure ? "wss" : "ws"}://${backendUrl.hostname}${backendUrl.pathname}ws/`
 } else {
-    websocketServerPath = `${url.protocol == "https:" ? "wss" : "ws"}://${window.location.host}/ws/`
+    websocketServerPath = `${url.protocol == "https:" ?? "wss" : "ws"}://${window.location.host}/ws/`
 }
 
 let socket
@@ -62,6 +62,7 @@ let socket
 export const networkData = {
     playerInteractions: true,
     remotePlayers: {},
+	// Negative value is for localhost testing ports like: http://localhost:80 or http://localhost:9300
     mySocketID: -1,
     lastSentSkinData: {},
     announcement: { message: "", timer: 0 },
