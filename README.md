@@ -1,4 +1,4 @@
-# sm64js
+# sm64jsarchive
 
 ## Links
 
