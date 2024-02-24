@@ -54,7 +54,7 @@ if (process.env.BACKEND_URL) {
     const isSecure = backendUrl.protocol === "https:"
     websocketServerPath = `${isSecure ? "wss" : "ws"}://${backendUrl.hostname}${backendUrl.pathname}ws/`
 } else {
-    websocketServerPath = `${url.protocol == "https:" ?? "wss" : "ws"}://${window.location.host}/ws/`
+    websocketServerPath = `${url.protocol == "https:" ?? "wss" : "ws"}://${window.location.href}/ws/`
 }
 
 let socket
