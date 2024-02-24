@@ -2,7 +2,9 @@
 
 ## Links
 
-[Main Website: sm64js.com](https://sm64js.com)
+[Website: sm64jsarchive.com](https://sm64jsarchive.com)
+
+[Original website: sm64js.com](https://sm64js.com)
 
 [Discord Server](https://discord.gg/7UaDnJt)
 
