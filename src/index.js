@@ -324,11 +324,11 @@ window.onload = async () => {
             const url = new URL(window.location.href)
             url.searchParams.delete('code')
             url.searchParams.delete('state')
-            url.pathname = '/' // below in the (' ') url add your web server this is not needed for localhost example for using with web servers: `'https://example.com'`
+            url.pathname = '/'
              history.replaceState({ state: 'login' }, '', url)
         }
     } else {
-        const res = await fetch(`${process.env.BACKEND_URL ?? ''}/api/login/`, {
+        const res = await fetch(`${process.env.BACKEND_URL ?? ''}/api/login`, {
             method: 'POST',
             credentials: 'include'
         })
