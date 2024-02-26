@@ -53,8 +53,8 @@ if (process.env.BACKEND_URL) {
     const backendUrl = new URL(process.env.BACKEND_URL)
     const isSecure = backendUrl.protocol === "https:"
     websocketServerPath = `${isSecure ? "wss" : "ws"}://${backendUrl.hostname}${backendUrl.pathname}ws/`
-} else {
-    websocketServerPath = `${url.protocol == "https:" ?? "wss" : "ws"}://${window.location.host}/ws/`
+} else { // works on both ws and wss folder
+    websocketServerPath = `${url.protocol == "https:" ? "wss" : "ws"}://${window.location.host}/ws/`
 }
 
 let socket
@@ -438,8 +438,8 @@ const redirect_uri = encodeURIComponent(`${url.protocol}//${window.location.host
 
 const discord_client_id = "807123464414429184"
 const discordOAuthURL = "https://discord.com/api/oauth2/authorize?client_id=" + discord_client_id + "&redirect_uri=" + redirect_uri + "&response_type=code&scope=identify"
-// change this to the client id of your own app on google oauth2.0 below example of this: 123456789-test.apps.googleusercontent.com this one is only for localhost testing
-const google_client_id = "1000892686951-dkp1vpqohmbq64h7jiiop9v6ic4t1mul.apps.googleusercontent.com"
+
+const google_client_id = "1032615971356-gv8dl3e37eralpv6hto7hp7stseo9v9m.apps.googleusercontent.com"
 const googleOAuthURL = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=" + google_client_id + "&redirect_uri=" + redirect_uri + "&scope=openid email" 
 
 if (url.searchParams.has('code')) document.getElementById("signinButtons").hidden = true
