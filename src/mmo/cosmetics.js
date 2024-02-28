@@ -448,7 +448,7 @@ export const recvSkinData = (skinMsg) => {
     }
 
     if (socket_id === networkData.mySocketID ||
-        networkData.remotePlayers[socket_id] == -1) return
+        networkData.remotePlayers[socket_id] == null) return
 
     const skinDataMsg = skinMsg.getSkindata()
     const skinData = {
