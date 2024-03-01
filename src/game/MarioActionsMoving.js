@@ -1223,7 +1223,24 @@ const act_dive_slide = (m) => {
 
 const act_pound_roll = (m) => {
 
-   
+    if (!(m.input & Mario.INPUT_ABOVE_SLIDE) && !(m.input & Mario.INPUT_A_PRESSED)) {
+		Mario.set_forward_vel(m, 30)
+    } else {
+        Mario.set_mario_action(m, Mario.ACT_BUTT_SLIDE_STOP, 0)
+    }
+
+    common_slide_action(m, Mario.ACT_STOMACH_SLIDE_STOP, Mario.ACT_FREEFALL, Mario.MARIO_ANIM_FORWARD_SPINNING)
+    return 0
+}
+
+const should_begin_sliding = (m) => {
+
+    //return 0 /// cheat disable sliding on slopes
+
+    if (m.input & Mario.INPUT_ABOVE_SLIDE) {
+        const slideLevel = (m.area.terrainType & TERRAIN_MASK) == TERRAIN_SLIDE
+        const movingBackward = m.forwardVel <= -1.0
+
         if (slideLevel || movingBackward || Mario.mario_facing_downhill(m, false)) {
             return 1
         }
