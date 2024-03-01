@@ -363,6 +363,8 @@ export const updateRainbowSkin = () => {
 
 document.getElementById('playerNameForm').onsubmit = (e) => {
     e.preventDefault()
+if (name.trim().length > 3) {
+}
     submitPlayerName()
 }
 
