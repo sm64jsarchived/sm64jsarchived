@@ -1,6 +1,6 @@
 # TODO
 
-### Contact me for now - Email: gmann@sm64jsarchive.com
+### Contact me for now - Website Contact: gmann@sm64jsarchive.com
 
 ### Prettier formatting settings:
 "prettier.semi": false,  
