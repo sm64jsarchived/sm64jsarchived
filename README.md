@@ -2,7 +2,6 @@
 
 ## Links
 
-[Website: sm64jsarchive.com](https://sm64jsarchive.com)
 [MMO: mmo.sm64jsarchive.com](https://mmo.sm64jsarchive.com)
 
 [Original website: sm64js.com](https://sm64js.com)
