@@ -50,6 +50,8 @@ if (gameID) { document.getElementById("mapSelect").hidden = true }
 // rewrote websockets
 // Must be running on https://localhost:9300 for example instead of the default http this can be done within npm run start in this project
 // let socket is already in this line
+let websocketServerPath
+// use let websocket server path to retrieve data code at the bottom is for starting sockets and opening websockets and more required stuff in the socket rewrite
 let socket = new WebSocket("wss://localhost:9300/ws/");
 //define socket
 socket.onopen = function(e) {
