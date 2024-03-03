@@ -52,10 +52,10 @@ if (gameID) { document.getElementById("mapSelect").hidden = true }
 // let socket is already in this line
 let websocketServerPath
 // use let websocket server path to retrieve data code at the bottom is for starting sockets and opening websockets and more required stuff in the socket rewrite
-let socket = new WebSocket("wss://localhost:9300/ws/");
+const socket = new WebSocket("ws://localhost:9300");
 //define socket
 socket.onopen = function(e) {
-  alert("[open] Connection established");
+alert("[open] Connection established");
   alert("Sending to server");
   socket.send("test server");
 };
@@ -79,6 +79,7 @@ socket.onerror = function(error) {
 };
 }
 
+let socket
 
 export const networkData = {
     playerInteractions: true,
