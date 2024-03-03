@@ -47,7 +47,7 @@ const getGameIdFromURL = () => {
 
 const gameID = getGameIdFromURL() 
 if (gameID) { document.getElementById("mapSelect").hidden = true }
-
+// rewrote websockets
 let socket = new WebSocket("wss://localhost:9300/ws/");
 //define socket
 socket.onopen = function(e) {
