@@ -48,13 +48,31 @@ const getGameIdFromURL = () => {
 const gameID = getGameIdFromURL() 
 if (gameID) { document.getElementById("mapSelect").hidden = true }
 
-let websocketServerPath
-if (process.env.BACKEND_URL) {
-    const backendUrl = new URL(process.env.BACKEND_URL)
-    const isSecure = backendUrl.protocol === "https:"
-    websocketServerPath = `${isSecure ? "wss" : "ws"}://${backendUrl.hostname}${backendUrl.pathname}ws/`
-} else { // works on both ws and wss folder
-    websocketServerPath = `${url.protocol == "https:" ? "wss" : "ws"}://${window.location.host}/ws/`
+let socket = new WebSocket("wss://localhost:9300/ws/");
+//define socket
+socket.onopen = function(e) {
+  alert("[open] Connection established");
+  alert("Sending to server");
+  socket.send("test server");
+};
+
+socket.onmessage = function(event) {
+  alert(`[message] Data received from server: ${event.data}`);
+};
+
+socket.onclose = function(event) {
+  if (event.wasClean) {
+    alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+  } else {
+    // e.g. server process killed or network down
+    // event.code is usually 1006 in this case
+    alert('[close] Connection died');
+  }
+};
+
+socket.onerror = function(error) {
+  alert(`[error]`);
+};
 }
 
 let socket
