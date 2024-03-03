@@ -11,6 +11,7 @@ import "./stylesheet.css"
 import { viewport } from "./game/Area"
 
 
+
 const send_display_list = (gfx_list) => { GFX.run(gfx_list) }
 
 window.pvp = true
