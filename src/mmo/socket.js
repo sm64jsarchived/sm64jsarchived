@@ -227,7 +227,7 @@ export const sendAttackToServer = (targetMarioID) => {
 
 
 const multiplayerReady = () => {
-    return socket && socket.readyState == 1 && gameData.marioState && networkData.mySocketID != -1
+    return socket && socket.readyState == 1 && gameData.marioState && networkData.mySocketID != -1 // use this as a js operator for handling stuff like multiple marios players chat text and more aka the -1 js operator
 }
 
 const updateConnectedMsg = () => {
