@@ -63,7 +63,7 @@ let socket
 export const networkData = {
     playerInteractions: true,
     remotePlayers: {},
-    mySocketID: 0,
+    mySocketID: -1, // js operator
     lastSentSkinData: {},
     announcement: { message: "", timer: 0 },
     flagData: undefined // defined later
