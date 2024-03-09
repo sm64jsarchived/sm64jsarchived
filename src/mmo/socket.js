@@ -51,32 +51,12 @@ if (gameID) { document.getElementById("mapSelect").hidden = true }
 // Must be running on https://localhost:9300 for example instead of the default http this can be done within npm run start in this project
 // let socket is already in this line
 let websocketServerPath
-// use let websocket server path to retrieve data code at the bottom is for starting sockets and opening websockets and more required stuff in the socket rewrite
-const socket = new WebSocket("ws://localhost:9300");
-//define socket
-socket.onopen = function(e) {
-alert("[open] Connection established");
-  alert("Sending to server");
-  socket.send("test server");
-};
-
-socket.onmessage = function(event) {
-  alert(`[message] Data received from server: ${event.data}`);
-};
-
-socket.onclose = function(event) {
-  if (event.wasClean) {
-    alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
-  } else {
-    // e.g. server process killed or network down
-    // event.code is usually 1006 in this case
-    alert('[close] Connection died');
-  }
-};
-
-socket.onerror = function(error) {
-  alert(`[error]`);
-};
+if (process.env.BACKEND_URL) {
+    const backendUrl = new URL(process.env.BACKEND_URL)
+    const isSecure = backendUrl.protocol === "https:"
+    websocketServerPath = `${isSecure ? "wss" : "ws"}://${backendUrl.hostname}${backendUrl.pathname}ws/`
+} else {
+    websocketServerPath = `${url.protocol == "https:" ? "wss" : "ws"}://${window.location.host}/ws/`
 }
 
 
