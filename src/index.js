@@ -329,8 +329,7 @@ window.onload = async () => {
              history.replaceState({ state: 'login' }, '', url)
         }
     } else {
-	    // Patch
-        const res = await fetch(`${process.env.BACKEND_URL ?? ''}/api/login/`, {
+        const res = await fetch(`${process.env.BACKEND_URL ?? ''}/api/login`, {
             method: 'POST',
             credentials: 'include'
         })
