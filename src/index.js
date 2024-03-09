@@ -329,7 +329,7 @@ window.onload = async () => {
              history.replaceState({ state: 'login' }, '', url)
         }
     } else {
-	    // modern browsers will recognize it even if its like: /api/login// or /api/login//// and if its /api/login//\ then it should be changed auto to a / like /api/login/// basically
+	    // Patch
         const res = await fetch(`${process.env.BACKEND_URL ?? ''}/api/login/`, {
             method: 'POST',
             credentials: 'include'
