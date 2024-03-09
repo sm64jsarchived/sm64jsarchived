@@ -47,9 +47,7 @@ const getGameIdFromURL = () => {
 
 const gameID = getGameIdFromURL() 
 if (gameID) { document.getElementById("mapSelect").hidden = true }
-// rewrote websockets
-// Must be running on https://localhost:9300 for example instead of the default http this can be done within npm run start in this project
-// let socket is already in this line
+
 let websocketServerPath
 if (process.env.BACKEND_URL) {
     const backendUrl = new URL(process.env.BACKEND_URL)
