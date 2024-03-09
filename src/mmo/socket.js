@@ -78,6 +78,7 @@ socket.onerror = function(error) {
   alert(`[error]`);
 };
 }
+{}
 
 let socket
 
